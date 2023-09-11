@@ -1,0 +1,33 @@
+h2 {
+  --wdth: calc(120 * var(--x) + 30);
+  --wght: calc(1000 * var(--y));
+  font-size: 3rem;
+  font-variation-settings: "wdth" var(--wdth, 100), "wght" var(--wght, 500);
+  color: white;
+}
+body {
+  --circleX: calc(100% * var(--x));
+  --circleY: calc(100% * var(--y));
+  background: radial-gradient(ellipse closest-corner at var(--circleX, 50%) var(--circleY, 50%), #5a3fff 25%, #b0c900 75%);
+}
+body::before {
+  --cursorX: calc(100vw * var(--x));
+  --cursorY: calc(100vh * var(--y));
+  content: "";
+  position: fixed;
+  border-radius: 30px;
+  inline-size: 50px;
+  block-size: 50px;
+  background: #b0c900;
+  display: block;
+  translate: var(--cursorX, 0) var(--cursorY, 0);
+  transform: translate(-50%, -50%);
+  mix-blend-mode: luminosity;
+}
+
+body {
+  min-height: 100vh;
+  font-family: system-ui, sans-serif;
+  display: grid;
+  place-content: center;
+}
